@@ -52,45 +52,66 @@ D7 = X Y Z
 
 
 ![image](https://user-images.githubusercontent.com/36288975/171543866-5a6eace6-8683-49d7-9c4f-a7cb30ec3035.png)
-## Figure -04 8 to 3 Decoder implementation 
+## Figure -04 8 to 3 Decoder implementation :
+### Procedure:
+### Step 1:
+Open Quartus II and select new project and choose the file location.
 
-### Procedure
-/* write all the steps invloved */
+### Step 2:
+Module Declaration. Module should have the file name.
 
+### Step 3:
+Input-Output Delecaration.
 
+### Step 4:
+Use assign to define the functionality of logic circuits.
 
-### PROGRAM 
-/*
+### Step 5:
+At the end give endmodule.
+
+### Step 6:
+Run the program and choose RTL viewer to get RTL realization.
+
+### PROGRAM :
+~~~
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by:G.Pavithra 
+RegisterNumber:  212221240036
+Encode:
+module ecode(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input d0,d1,d2,d3,d4,d5,d6,d7;
+output a,b,c;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
 
+Decoder:
+module dcode(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+input a,b,c;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0 = (~a&~b&~c);
+assign d1 = (~a&~b&c);
+assign d2 = (~a&b&~c);
+assign d3 = (~a&b&c);
+assign d4 = (a&~b&~c);
+assign d5 = (a&~b&c);
+assign d6 = (a&b&~c);
+assign d7 = (a&b&c);
+endmodule
+~~~
+### RTL LOGIC(Encoder):
+![output](ecode_rtl.png)
+### RTL LOGIC(Decoder):
+![output](dcode_rtl.png)
+### TIMING DIGRAMS(Encoder):
+![output](ecode_t.png)
+### TIMING DIGRAMS(Decoder):
+![output](dcode_t.png)
+### TRUTH TABLE(Encoder):
+![output](encodertt.png) 
+### TRUTH TABLE(Decoder):
+![output](decodertt.jpg)
 
-
-
-
-
-### RTL LOGIC  
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+### RESULTS :
+Thus, 8 to 3 Encoder and 3 to 8 Decoder is implemented using verilog and its outputs is validated.
